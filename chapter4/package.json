@@ -12,7 +12,8 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "bs-platform": "^8.2.0"
+    "bs-platform": "^8.2.0",
+    "parcel": "^1.12.4"
   },
   "dependencies": {
     "bs-webapi": "^0.19.1"
