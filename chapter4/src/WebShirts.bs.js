@@ -7,8 +7,6 @@ var Caml_option = require("bs-platform/lib/js/caml_option.js");
 var Caml_js_exceptions = require("bs-platform/lib/js/caml_js_exceptions.js");
 var ShirtSize$Chapter4 = require("./ShirtSize.bs.js");
 
-var calcButton = document.getElementById("calculate");
-
 function calculate(param) {
   console.log("You clicked me!");
   var getValue = function (element) {
@@ -50,6 +48,8 @@ function calculate(param) {
   
 }
 
+var calcButton = document.getElementById("calculate");
+
 if (calcButton == null) {
   console.log("None");
 } else {
@@ -67,6 +67,6 @@ var calcButton$1 = (calcButton == null) ? undefined : Caml_option.some(calcButto
 exports.D = D;
 exports.Doc = Doc;
 exports.Elem = Elem;
-exports.calcButton = calcButton$1;
 exports.calculate = calculate;
+exports.calcButton = calcButton$1;
 /* calcButton Not a pure module */

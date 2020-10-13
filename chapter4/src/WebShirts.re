@@ -2,8 +2,6 @@ module D = Webapi.Dom;
 module Doc = Webapi.Dom.Document;
 module Elem = Webapi.Dom.Element;
 
-let calcButton = Doc.getElementById("calculate", D.document);
-
 let calculate = (_: Dom.event): unit => {
   Js.log("You clicked me!");
 
@@ -49,6 +47,8 @@ let calculate = (_: Dom.event): unit => {
     |> Belt.Option.map(_, Elem.setInnerText(_, priceString));
   ();
 };
+
+let calcButton = Doc.getElementById("calculate", D.document);
 
 switch (calcButton) {
 | Some(element) =>
