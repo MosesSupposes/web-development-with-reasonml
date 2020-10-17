@@ -32,7 +32,7 @@ let badElement =
   try(Belt.List.getExn(items, 10)) {
   | Js.Exn.Error(e) =>
     switch (Js.Exn.message(e)) {
-    | Some(message) => Js.log({|Error: $message|}) // Error: getExn
+    | Some(message) => Js.log({j|Error: $message|j}) // Error: getExn
     | None => Js.log("An unkown error occurred")
     };
     (-1);

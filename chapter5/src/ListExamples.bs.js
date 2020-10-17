@@ -85,7 +85,7 @@ catch (raw_e){
   if (e.RE_EXN_ID === Js_exn.$$Error) {
     var message = e._1.message;
     if (message !== undefined) {
-      console.log("Error: $message");
+      console.log("Error: " + message);
     } else {
       console.log("An unkown error occurred");
     }
