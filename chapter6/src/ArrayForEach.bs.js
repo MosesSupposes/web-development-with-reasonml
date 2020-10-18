@@ -5,16 +5,6 @@ var Curry = require("bs-platform/lib/js/curry.js");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var Caml_array = require("bs-platform/lib/js/caml_array.js");
 
-console.log("Hello, BuckleScript and Reason!");
-
-var arr = [
-  1,
-  2,
-  3,
-  4,
-  5
-];
-
 function forEachArr(cb, _array) {
   while(true) {
     var array = _array;
@@ -29,8 +19,8 @@ function forEachArr(cb, _array) {
     throw {
           RE_EXN_ID: "Match_failure",
           _1: [
-            "Demo.re",
-            4,
+            "ArrayForEach.re",
+            1,
             63
           ],
           Error: new Error()
@@ -38,11 +28,19 @@ function forEachArr(cb, _array) {
   };
 }
 
+var arr = [
+  1,
+  2,
+  3,
+  4,
+  5
+];
+
 console.log(forEachArr((function (prim) {
             console.log(prim);
             
           }), arr));
 
-exports.arr = arr;
 exports.forEachArr = forEachArr;
+exports.arr = arr;
 /*  Not a pure module */

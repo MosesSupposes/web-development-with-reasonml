@@ -1,6 +1,3 @@
-Js.log("Hello, BuckleScript and Reason!");
-let arr = [|1, 2, 3, 4, 5|];
-
 let rec forEachArr = (cb: 'a => 'b, array: array('a)): unit => {
   switch (array) {
   | [||] => ()
@@ -13,4 +10,5 @@ let rec forEachArr = (cb: 'a => 'b, array: array('a)): unit => {
   };
 };
 
+let arr = [|1, 2, 3, 4, 5|];
 Js.log(forEachArr(Js.log, arr));
