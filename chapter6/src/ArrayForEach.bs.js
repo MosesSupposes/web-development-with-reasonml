@@ -4,6 +4,18 @@
 var Curry = require("bs-platform/lib/js/curry.js");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var Caml_array = require("bs-platform/lib/js/caml_array.js");
+var Caml_option = require("bs-platform/lib/js/caml_option.js");
+
+function head(array) {
+  if (array.length !== 0) {
+    return Caml_option.some(Caml_array.get(array, 0));
+  }
+  
+}
+
+function tail(array) {
+  return Belt_Array.slice(array, 1, array.length - 1 | 0);
+}
 
 function forEachArr(cb, _array) {
   while(true) {
@@ -12,15 +24,27 @@ function forEachArr(cb, _array) {
       return ;
     }
     if (array.length !== 0) {
-      Curry._1(cb, Caml_array.get(array, 0));
-      _array = Belt_Array.slice(array, 1, array.length - 1 | 0);
-      continue ;
+      var value = head(array);
+      if (value !== undefined) {
+        Curry._1(cb, Caml_option.valFromOption(value));
+        _array = tail(array);
+        continue ;
+      }
+      throw {
+            RE_EXN_ID: "Match_failure",
+            _1: [
+              "ArrayForEach.re",
+              16,
+              8
+            ],
+            Error: new Error()
+          };
     }
     throw {
           RE_EXN_ID: "Match_failure",
           _1: [
             "ArrayForEach.re",
-            1,
+            11,
             63
           ],
           Error: new Error()
@@ -41,6 +65,8 @@ console.log(forEachArr((function (prim) {
             
           }), arr));
 
+exports.head = head;
+exports.tail = tail;
 exports.forEachArr = forEachArr;
 exports.arr = arr;
 /*  Not a pure module */
