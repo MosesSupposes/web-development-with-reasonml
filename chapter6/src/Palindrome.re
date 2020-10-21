@@ -56,14 +56,14 @@ let testString = repeat("a", 50000);
 //   };
 // };
 let repeatTest = (n: int): float => {
-  let rec repeatTestHelper = (tries: int, accumulatedTime: float): float => {
-    switch (tries) {
+  let rec repeatTestHelper = (times: int, accumulatedTime: float): float => {
+    switch (times) {
     | 0 => accumulatedTime
     | _ =>
       let startTime = Js.Date.now();
       let _ = isPalindrome(testString);
       let endTime = Js.Date.now();
-      repeatTestHelper(tries - 1, accumulatedTime +. (endTime -. startTime));
+      repeatTestHelper(times - 1, accumulatedTime +. (endTime -. startTime));
     };
   };
   repeatTestHelper(n, 0.0);

@@ -65,19 +65,19 @@ console.log(repeat("ha", 4));
 var testString = repeat("a", 50000);
 
 function repeatTest(n) {
-  var _tries = n;
+  var _times = n;
   var _accumulatedTime = 0.0;
   while(true) {
     var accumulatedTime = _accumulatedTime;
-    var tries = _tries;
-    if (tries === 0) {
+    var times = _times;
+    if (times === 0) {
       return accumulatedTime;
     }
     var startTime = Date.now();
     isPalindrome(testString);
     var endTime = Date.now();
     _accumulatedTime = accumulatedTime + (endTime - startTime);
-    _tries = tries - 1 | 0;
+    _times = times - 1 | 0;
     continue ;
   };
 }
