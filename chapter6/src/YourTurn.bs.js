@@ -16,26 +16,16 @@ function takeWhile(predicate, list) {
       return accumulator;
     }
     var x = list$1.hd;
-    if (Curry._1(predicate, x)) {
-      _list = list$1.tl;
-      _accumulator = Belt_List.concat(accumulator, {
-            hd: x,
-            tl: /* [] */0
-          });
-      continue ;
-    }
     if (!Curry._1(predicate, x)) {
+      Curry._1(predicate, x);
       return accumulator;
     }
-    throw {
-          RE_EXN_ID: "Match_failure",
-          _1: [
-            "YourTurn.re",
-            19,
-            72
-          ],
-          Error: new Error()
-        };
+    _list = list$1.tl;
+    _accumulator = Belt_List.concat(accumulator, {
+          hd: x,
+          tl: /* [] */0
+        });
+    continue ;
   };
 }
 
@@ -47,25 +37,18 @@ function dropWhile(predicate, _list) {
     }
     var xs = list.tl;
     var x = list.hd;
-    if (Curry._1(predicate, x)) {
-      _list = xs;
-      continue ;
-    }
     if (!Curry._1(predicate, x)) {
-      return Pervasives.$at({
-                  hd: x,
-                  tl: /* [] */0
-                }, xs);
+      if (Curry._1(predicate, x)) {
+        return list;
+      } else {
+        return Pervasives.$at({
+                    hd: x,
+                    tl: /* [] */0
+                  }, xs);
+      }
     }
-    throw {
-          RE_EXN_ID: "Match_failure",
-          _1: [
-            "YourTurn.re",
-            32,
-            23
-          ],
-          Error: new Error()
-        };
+    _list = xs;
+    continue ;
   };
 }
 

@@ -22,6 +22,7 @@ let takeWhile = (predicate: 'a => bool, list: list('a)): list('a) => {
     | [x, ...xs] when predicate(x) =>
       helper(Belt.List.concat(accumulator, [x]), xs)
     | [x, ...xs] when !predicate(x) => accumulator
+    | _ => accumulator
     };
   };
   helper([], list);
@@ -34,6 +35,7 @@ let rec dropWhile: ('a => bool, list('a)) => list('a) =
     | [] => list
     | [x, ...xs] when predicate(x) => dropWhile(predicate, xs)
     | [x, ...xs] when !predicate(x) => [x] @ xs
+    | _ => list
     };
   };
 
