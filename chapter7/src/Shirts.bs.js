@@ -2,6 +2,7 @@
 'use strict';
 
 var $$String = require("bs-platform/lib/js/string.js");
+var Caml_format = require("bs-platform/lib/js/caml_format.js");
 
 function toString(size) {
   if (typeof size !== "number") {
@@ -86,6 +87,147 @@ var Cuff = {
   fromString: fromString$1
 };
 
+function toString$2(sleeve) {
+  switch (sleeve) {
+    case /* Short */0 :
+        return "Short";
+    case /* Long */1 :
+        return "Long";
+    case /* XLong */2 :
+        return "XLong";
+    
+  }
+}
+
+function fromString$2(s) {
+  var match = s.toLowerCase();
+  switch (match) {
+    case "long" :
+        return /* Long */1;
+    case "short" :
+        return /* Short */0;
+    case "xlong" :
+        return /* XLong */2;
+    default:
+      return ;
+  }
+}
+
+var Sleeve = {
+  toString: toString$2,
+  fromString: fromString$2
+};
+
+function toString$3(color) {
+  switch (color) {
+    case /* White */0 :
+        return "White";
+    case /* Blue */1 :
+        return "Blue";
+    case /* Red */2 :
+        return "Red";
+    case /* Green */3 :
+        return "Green";
+    case /* Brown */4 :
+        return "Brown";
+    
+  }
+}
+
+function fromString$3(s) {
+  var match = s.toLowerCase();
+  switch (match) {
+    case "blue" :
+        return /* Blue */1;
+    case "brown" :
+        return /* Brown */4;
+    case "green" :
+        return /* Green */3;
+    case "red" :
+        return /* Red */2;
+    case "white" :
+        return /* White */0;
+    default:
+      return ;
+  }
+}
+
+var Color = {
+  toString: toString$3,
+  fromString: fromString$3
+};
+
+function toString$4(pattern) {
+  switch (pattern) {
+    case /* Solid */0 :
+        return "Solid";
+    case /* Pinstripe */1 :
+        return "Pinstripe";
+    case /* Check */2 :
+        return "Check";
+    
+  }
+}
+
+function fromString$4(s) {
+  var match = s.toLowerCase();
+  switch (match) {
+    case "check" :
+        return /* Check */2;
+    case "pinstripe" :
+        return /* Pinstripe */1;
+    case "solid" :
+        return /* Solid */0;
+    default:
+      return ;
+  }
+}
+
+var Pattern = {
+  toString: toString$4,
+  fromString: fromString$4
+};
+
+function toString$5(collar) {
+  switch (collar) {
+    case /* Button */0 :
+        return "Button";
+    case /* Straight */1 :
+        return "Straight";
+    case /* Spread */2 :
+        return "Spread";
+    
+  }
+}
+
+function fromString$5(s) {
+  var match = s.toLowerCase();
+  switch (match) {
+    case "button" :
+        return /* Button */0;
+    case "spread" :
+        return /* Spread */2;
+    case "straight" :
+        return /* Straight */1;
+    default:
+      return ;
+  }
+}
+
+var Collar = {
+  toString: toString$5,
+  fromString: fromString$5
+};
+
+function optInt(x) {
+  return Caml_format.caml_int_of_string(x);
+}
+
 exports.Size = Size;
 exports.Cuff = Cuff;
+exports.Sleeve = Sleeve;
+exports.Color = Color;
+exports.Pattern = Pattern;
+exports.Collar = Collar;
+exports.optInt = optInt;
 /* No side effect */
