@@ -19,34 +19,55 @@ module Cuff: {
   let fromString: string => option(t);
 };
 
-type sleeve =
-  | Short
-  | Long
-  | XLong;
+module Sleeve: {
+  type t =
+    | Short
+    | Long
+    | XLong;
+  let toString: t => string;
+  let fromString: string => option(t);
+};
 
-type color =
-  | White
-  | Blue
-  | Red
-  | Green
-  | Brown;
+module Color: {
+  type t =
+    | White
+    | Blue
+    | Red
+    | Green
+    | Brown;
 
-type pattern =
-  | Solid
-  | Pinstripe
-  | Check;
+  let toString: t => string;
+  let fromString: string => option(t);
+};
 
-type collar =
-  | Button
-  | Straight
-  | Spread;
+module Pattern: {
+  type t =
+    | Solid
+    | Pinstripe
+    | Check;
+
+  let toString: t => string;
+  let fromString: string => option(t);
+};
+
+module Collar: {
+  type t =
+    | Button
+    | Straight
+    | Spread;
+
+  let toString: t => string;
+  let fromString: string => option(t);
+};
 
 type order = {
   quantity: int,
   size: Size.t,
-  sleeve,
-  color,
-  pattern,
+  sleeve: Sleeve.t,
+  color: Color.t,
+  pattern: Pattern.t,
   cuff: Cuff.t,
-  collar,
+  collar: Collar.t,
 };
+
+let optInt: string => option(int);
