@@ -1,6 +1,6 @@
 // We're intentionally leaving out the `jsDateParse` binding.
 type t;
-let createDate: unit => float;
+let createDate: unit => t;
 let now: unit => float;
 let toString: t => string;
 let getFullYear: t => float;
