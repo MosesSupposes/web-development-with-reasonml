@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "bs-platform": "^8.2.0",
+    "file-loader": "^6.2.0",
     "moduleserve": "^0.9.0"
   }
 }
