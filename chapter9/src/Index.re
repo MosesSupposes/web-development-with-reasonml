@@ -29,9 +29,7 @@ let makeContainer = text => {
 
 // All 4 examples.
 ReactDOMRe.render(
-  <BlinkingGreeting>
-    {React.string("Hello!")}
-  </BlinkingGreeting>,
+  <BlinkingGreeting> {React.string("Hello!")} </BlinkingGreeting>,
   makeContainer("Blinking Greeting"),
 );
 
@@ -48,4 +46,23 @@ ReactDOMRe.render(
 ReactDOMRe.render(
   <ReasonUsingJSUsingReason />,
   makeContainer("Reason Using JS Using Reason"),
+);
+
+ReactDOMRe.renderToElementWithId(
+  <Notice
+    message="Total file size 1280 bytes"
+    color="#000"
+    icon="information"
+  />,
+  "info",
+);
+
+ReactDOMRe.renderToElementWithId(
+  <Notice message="Variable x is unused" color="#FF8C00" icon="warning" />,
+  "warn",
+);
+
+ReactDOMRe.renderToElementWithId(
+  <Notice message="Variable x is not defined" color="#8B0000" icon="error" />,
+  "err",
 );
